@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41EBD4241A5B72650046B2CF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EBD4231A5B72650046B2CF /* GameViewController.swift */; };
 		41F1C4B21A5B318A00D643AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1C4B11A5B318A00D643AA /* AppDelegate.swift */; };
 		41F1C4B41A5B318A00D643AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1C4B31A5B318A00D643AA /* ViewController.swift */; };
 		41F1C4B71A5B318A00D643AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F1C4B51A5B318A00D643AA /* Main.storyboard */; };
 		41F1C4B91A5B318A00D643AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F1C4B81A5B318A00D643AA /* Images.xcassets */; };
 		41F1C4BC1A5B318A00D643AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F1C4BA1A5B318A00D643AA /* LaunchScreen.xib */; };
 		41F1C4C81A5B318A00D643AA /* CashFlowAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1C4C71A5B318A00D643AA /* CashFlowAppTests.swift */; };
+		41F1C4D21A5B31D400D643AA /* Profession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F1C4D11A5B31D400D643AA /* Profession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41EBD4231A5B72650046B2CF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ../GameViewController.swift; sourceTree = "<group>"; };
 		41F1C4AC1A5B318A00D643AA /* CashFlowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F1C4B01A5B318A00D643AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41F1C4B11A5B318A00D643AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		41F1C4C11A5B318A00D643AA /* CashFlowAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CashFlowAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F1C4C61A5B318A00D643AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41F1C4C71A5B318A00D643AA /* CashFlowAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowAppTests.swift; sourceTree = "<group>"; };
+		41F1C4D11A5B31D400D643AA /* Profession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profession.swift; path = ../Profession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				41F1C4B11A5B318A00D643AA /* AppDelegate.swift */,
+				41F1C4D11A5B31D400D643AA /* Profession.swift */,
 				41F1C4B31A5B318A00D643AA /* ViewController.swift */,
+				41EBD4231A5B72650046B2CF /* GameViewController.swift */,
 				41F1C4B51A5B318A00D643AA /* Main.storyboard */,
 				41F1C4B81A5B318A00D643AA /* Images.xcassets */,
 				41F1C4BA1A5B318A00D643AA /* LaunchScreen.xib */,
@@ -122,6 +128,7 @@
 				41F1C4A81A5B318A00D643AA /* Sources */,
 				41F1C4A91A5B318A00D643AA /* Frameworks */,
 				41F1C4AA1A5B318A00D643AA /* Resources */,
+				50524F424C454D533F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,13 +214,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50524F424C454D533F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		41F1C4A81A5B318A00D643AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41EBD4241A5B72650046B2CF /* GameViewController.swift in Sources */,
 				41F1C4B41A5B318A00D643AA /* ViewController.swift in Sources */,
 				41F1C4B21A5B318A00D643AA /* AppDelegate.swift in Sources */,
+				41F1C4D21A5B31D400D643AA /* Profession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +297,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -314,7 +339,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -405,6 +430,7 @@
 				41F1C4CD1A5B318A00D643AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41F1C4CE1A5B318A00D643AA /* Build configuration list for PBXNativeTarget "CashFlowAppTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +439,7 @@
 				41F1C4D01A5B318A00D643AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
